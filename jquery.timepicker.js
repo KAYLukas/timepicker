@@ -268,10 +268,8 @@
                     i.open();
                 }).bind('blur.timepicker', function() {
                     setTimeout(function() {
-                        if (i.element.data('timepicker-user-clicked-outside')) {
-                            i.close();
-                        }
-                    });
+                        i.close();
+                    }, 100);
                 }).bind('change.timepicker', function() {
                     if (i.closed()) {
                         i.setTime($.fn.timepicker.parseTime(i.element.val()));
