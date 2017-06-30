@@ -387,7 +387,9 @@
                 // idea from https://prototype.lighthouseapp.com/projects/8887/tickets/248-results-popup-from-ajaxautocompleter-disappear-when-user-clicks-on-scrollbars-in-ie6ie7
                 i.element.data('timepicker-event-namespace', Math.random());
 
-                $(document).bind('click.timepicker-' + i.element.data('timepicker-event-namespace'), function(event) {
+                $(document).bind('click.timepicker-' + i.element.data('timepicker-event-namespace') + ' ' +
+                    'keydown.timepicker-' + i.element.data('timepicker-event-namespace') + ' ' +
+                    'keyup.timepicker-' + i.element.data('timepicker-event-namespace'), function(event) {
                     if (i.element.get(0) === event.target) {
                         i.element.data('timepicker-user-clicked-outside', false);
                     } else {
@@ -523,7 +525,9 @@
                     widget.ui.children().removeClass('ui-state-hover');
                 }
 
-                $(document).unbind('click.timepicker-' + i.element.data('timepicker-event-namespace'));
+                $(document).unbind('click.timepicker-' + i.element.data('timepicker-event-namespace') + ' ' +
+                    'keydown.timepicker-' + i.element.data('timepicker-event-namespace') + ' ' +
+                    'keyup.timepicker-' + i.element.data('timepicker-event-namespace'));
 
                 return i.element;
             },
