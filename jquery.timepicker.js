@@ -266,16 +266,17 @@
                     }
                 }).bind('keyup.timepicker', function(event) {
                     switch (event.which || event.keyCode) {
-                        case widget.keyCode.ENTER:
-                        case widget.keyCode.NUMPAD_ENTER:
-                        case widget.keyCode.UP:
-                        case widget.keyCode.DOWN:
-                            break;
-                        default:
-                            if (i.options.showOnInput) {
-                                i.open();
-                            }
-                            break;
+                    case widget.keyCode.ENTER:
+                    case widget.keyCode.NUMPAD_ENTER:
+                    case widget.keyCode.UP:
+                    case widget.keyCode.DOWN:
+                        break;
+                    default:
+                        if (i.options.showOnInput) {
+                            i.close(true);
+                            i.open();
+                        }
+                        break;
                     }
                 }).bind('focus.timepicker', function() {
                     i.open();
